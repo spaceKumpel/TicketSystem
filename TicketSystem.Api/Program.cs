@@ -42,7 +42,7 @@ app.MapPost("/tickets", (AddTicketDTO Data) =>
     .WithName("AddTicket")
     .WithOpenApi();
 
-app.MapPut("/tickets/{id}", (Guid id, AddTicketDTO ubdateTicket) =>
+app.MapPut("/tickets/{id}", (Guid id, EditTicketDTO ubdateTicket) =>
 {
     var existingTicket = tickets.FirstOrDefault(t => t.Id == id);
 
@@ -75,6 +75,12 @@ public class Ticket
     public DateTime CreatedAt { get; set; }
 }
 public class AddTicketDTO
+{
+    public string Title { get; set; }
+    public string Description { get; set; }
+
+}
+public class EditTicketDTO
 {
     public string Title { get; set; }
     public string Description { get; set; }

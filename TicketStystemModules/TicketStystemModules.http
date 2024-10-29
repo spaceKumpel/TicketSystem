@@ -1,0 +1,6 @@
+@TicketStystemModules_HostAddress = http://localhost:5234
+
+GET {{TicketStystemModules_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

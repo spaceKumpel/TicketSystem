@@ -1,0 +1,6 @@
+@TicketSystem.Api_HostAddress = http://localhost:5220
+
+GET {{TicketSystem.Api_HostAddress}}/
+Accept: application/json
+
+###

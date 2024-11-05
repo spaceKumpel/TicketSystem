@@ -10,7 +10,7 @@ namespace TicketStystemModules.Services
         {
             _context = context;
         }
-
+     
         public async Task<PaginatedResponse<Ticket>> GetTicketsAsync(string? title, string titleFilter, DateTime? dateFrom, DateTime? dateTo, string sortBy, string sortOrder, int page, int pageSize)
         {
             var query = _context.Tickets.AsQueryable();
@@ -64,7 +64,7 @@ namespace TicketStystemModules.Services
                 Id = Guid.NewGuid(),
                 Title = data.Title,
                 Description = data.Description,
-                CreatedAt = DateTime.Now
+                CreatedAt = DateTime.UtcNow
             };
 
             await _context.Tickets.AddAsync(newTicket);

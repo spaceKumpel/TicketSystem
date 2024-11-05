@@ -3,7 +3,7 @@ using TicketStystemModules.Modules;
 using TicketStystemModules.Services;
 
 [ApiController]
-[Route("api/[controller]")]
+[Route("api/tickets")]
 public class TicketController : ControllerBase
 {
     private readonly TicketService _ticketService;

@@ -1,18 +1,13 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using TicketStystemModules.Modules;
 using TicketStystemModules.Services;
 var builder = WebApplication.CreateBuilder(args);
 
-// Konfiguracja bazy danych
+
 builder.Services.AddDbContext<TicketContext>(options =>
-{
-    options.UseSqlServer("Server=DESKTOP-DB81SDF\\SQLEXPRESS;Database=InMemory;Trusted_Connection=True;TrustServerCertificate=True;");
-});
-
-// Konfiguracja serwisów
+    options.UseNpgsql(builder.Configuration.GetConnectionString("TicketDatabase")));
 builder.Services.AddScoped<TicketService>();
-
-// Konfiguracja kontrolerów i Swaggera
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
